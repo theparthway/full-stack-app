@@ -45,6 +45,7 @@ async function login(req, res) {
         res.sendStatus(200);
     } catch (err) {
         console.log(err);
+        console.log("login auth error");
         res.sendStatus(400);
     }
 }
