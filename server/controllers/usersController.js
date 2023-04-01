@@ -38,6 +38,7 @@ async function login(req, res) {
         res.cookie("Authorization", token, {
             expires: new Date(exp),
             httpOnly: true,
+            sameSite: 'None',
             secure: process.env.NODE_ENV === 'production'
         })
     
