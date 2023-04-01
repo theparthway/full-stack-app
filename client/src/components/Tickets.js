@@ -1,4 +1,5 @@
 import ticketsStore from "../stores/ticketsStore";
+import QR from "./QR";
 
 export default function Tickets() {
     const store = ticketsStore();
