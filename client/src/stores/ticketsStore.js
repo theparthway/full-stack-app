@@ -11,7 +11,10 @@ const ticketsStore = create((set) => ({
     },
 
     fetchTickets: async () => {
+        console.log("before axios request from client");
         const res = await axios.get('/tickets');
+        
+        console.log("after");
     
         set({tickets: res.data.tickets});
     },
