@@ -37,7 +37,7 @@ const ticketsStore = create((set) => ({
 
         const { form, tickets } = ticketsStore.getState();
     
-        const res = await axios.post('/ticket', form);
+        const res = await axios.post('/ticket', form, { withCredentials: true });
 
         set({
             tickets: [...tickets, res.data.ticket],
@@ -49,7 +49,7 @@ const ticketsStore = create((set) => ({
     },
 
     deleteTicket: async (_id) => {
-        await axios.delete('/ticket/' + _id);
+        await axios.delete('/ticket/' + _id, { withCredentials: true });
 
         const tickets = ticketsStore.getState().tickets;
 
