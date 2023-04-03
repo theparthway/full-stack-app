@@ -13,7 +13,7 @@ const ScanPage = () => {
           }
 
           if (!!error) {
-            console.info(error);
+            console.error(error);
           }
         }}
         style={{ width: '100%' }}
@@ -23,4 +23,4 @@ const ScanPage = () => {
   );
 };
 
-export default Test;
+export default ScanPage;
