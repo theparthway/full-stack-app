@@ -11,6 +11,7 @@ export default function Tickets() {
           return <div key={ticket._id}>
             <h4>{ticket.firstName}</h4>
             <h4>{ticket.lastName}</h4>
+            <QR id={ticket._id} />
             <button onClick={() => {store.deleteTicket(ticket._id)}}>Delete</button>
           </div>
         })}

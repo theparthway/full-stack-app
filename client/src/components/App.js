@@ -1,5 +1,6 @@
 import TicketsPage from "../pages/TicketsPage";
 import LoginPage from "../pages/LoginPage";
+import ScanPage from '../pages/ScanPage';
 import RequireAuth from '../components/RequireAuth';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import LogoutPage from "../pages/LogoutPage";
@@ -25,6 +26,7 @@ function App() {
           <Route index element={<RequireAuth><TicketsPage /></RequireAuth>}></Route>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/logout" element={<LogoutPage />} />
+          <Route path="/scan" element={<ScanPage />} />
         </Routes>
       </BrowserRouter>
     </div>
