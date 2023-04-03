@@ -76,13 +76,14 @@ const ScanPage = () => {
 
   const handleScan = (res, err) => {
     if (!!res) {
-      setData(res?.text + store.tickets.filter(ticket => {return ticket._id === res?.text}));
+      setData(res?.text + store.tickets.filter(ticket => {return ticket._id === res?.text}).firstName);
       // const dat = store.tickets.filter(ticket => {return ticket._id === res?.text});
       // setData(dat);
     }
   
     if (!!err) {
       console.error(err);
+      setData(err);
     }
   }
 
@@ -93,7 +94,7 @@ const ScanPage = () => {
         style={{ width: '100%' }}
         constraints={{ facingMode: 'environment' }}
       />
-      <p>{data.firstName + " " + data.lastName}</p>
+      <p>{data}</p>
     </>
   );
 };
