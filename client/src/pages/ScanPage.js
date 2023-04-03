@@ -76,9 +76,9 @@ const ScanPage = () => {
 
   const handleScan = (res, err) => {
     if (!!res) {
-      // setData(result?.text);
-      const dat = store.tickets.filter(ticket => {return ticket._id === res?.text});
-      setData(dat);
+      setData(res?.text + store.tickets.filter(ticket => {return ticket._id === res?.text}));
+      // const dat = store.tickets.filter(ticket => {return ticket._id === res?.text});
+      // setData(dat);
     }
   
     if (!!err) {
