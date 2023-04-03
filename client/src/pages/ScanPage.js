@@ -93,7 +93,7 @@ const ScanPage = () => {
         style={{ width: '100%' }}
         constraints={{ facingMode: 'environment' }}
       />
-      <p>{data}</p>
+      <p>{data.firstName + " " + data.lastName}</p>
     </>
   );
 };

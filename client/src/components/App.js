@@ -29,7 +29,7 @@ function App() {
           <Route index element={<RequireAuth><TicketsPage /></RequireAuth>}></Route>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/logout" element={<LogoutPage />} />
-          <Route path="/scan" element={<ScanPage />} />
+          <Route path="/scan" element={ <RequireAuth><ScanPage /></RequireAuth> } />
         </Routes>
       </BrowserRouter>
     </div>
