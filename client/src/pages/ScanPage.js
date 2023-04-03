@@ -68,22 +68,28 @@
 
 import { useState } from 'react';
 import { QrReader } from 'react-qr-reader';
+import ticketsStore from "../stores/ticketsStore";
 
 const ScanPage = () => {
   const [data, setData] = useState('No result');
+  const store = ticketsStore();
+
+  const handleScan = (res, err) => {
+    if (!!res) {
+      // setData(result?.text);
+      const dat = store.tickets.filter(ticket => {return ticket._id === res?.text});
+      setData(dat);
+    }
+  
+    if (!!err) {
+      console.error(err);
+    }
+  }
 
   return (
     <>
       <QrReader
-        onResult={(result, error) => {
-          if (!!result) {
-            setData(result?.text);
-          }
-
-          if (!!error) {
-            console.error(error);
-          }
-        }}
+        onResult={handleScan}
         style={{ width: '100%' }}
         constraints={{ facingMode: 'environment' }}
       />
