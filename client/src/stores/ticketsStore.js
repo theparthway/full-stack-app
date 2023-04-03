@@ -4,6 +4,8 @@ import axios from 'axios';
 const ticketsStore = create((set) => ({
     tickets: null,
 
+    ticket: null,
+
     form: {
         firstName: '',
         lastName: '',
@@ -17,6 +19,12 @@ const ticketsStore = create((set) => ({
         console.log("after");
     
         set({tickets: res.data.tickets});
+    },
+
+    fetchTicket: async (id) => {
+        const res = await axios.get(`/ticket?id=${id}`, { withCredentials: true });
+
+        set({ticket: res.data.ticket});
     },
 
     handleFormUpdate: (e) => {
