@@ -25,7 +25,7 @@ const authStore = create((set) => ({
     login: async () => {
         const { loginForm } = authStore.getState();
 
-        await axios.post('/login', { withCredentials: true });
+        await axios.post('/login', loginForm, { withCredentials: true });
 
         set({
             loggedIn: true,
