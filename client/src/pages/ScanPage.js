@@ -14,7 +14,10 @@ const ScanPage = () => {
   const handleScan = (res, err) => {
     if (!!res) {
       // setData(res?.text);
-      setData(store.tickets.filter(ticket => {return ticket._id === res?.text}));
+      console.log(store.tickets);
+      console.log(res.text);
+      const dat = store.tickets.filter(ticket => {return ticket._id === res.text});
+      setData(dat);
     }
 
     if (!!err) {
