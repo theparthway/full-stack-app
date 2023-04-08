@@ -1,36 +1,32 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { QrReader } from 'react-qr-reader';
-import ticketsStore from "../stores/ticketsStore";
+import axios from 'axios';
 
 const ScanPage = () => {
   const [data, setData] = useState("no result");
+  let gotTickets = false;
+  let dat;
+  
+  const handleScan = async (res, err) => {
+    if (!gotTickets) {
+      dat = await axios.get('/tickets', { withCredentials: true });
+      console.log("retrieved all tickets");
+      gotTickets = true;
+    }
 
-  const store = ticketsStore();
-
-  useEffect(() => {
-    store.fetchTickets();
-  }, []);
-
-  const handleScan = (res, err) => {
     if (!!res) {
+      const filt = dat.data.tickets.filter(ticket => {return ticket._id === res?.text});
+      console.log(filt);
+      setData(filt[0]["firstName"]);
+
       // setData(res?.text);
-      console.log(store.tickets);
-      console.log(res.text);
-      const dat = store.tickets.filter(ticket => {return ticket._id === res.text});
-      setData(dat);
     }
 
     if (!!err) {
       console.error(err);
-      setData("error in reading" + err);
-
     }
   }
 
-  // const constraints = {
-  //   facingMode: { exact: "user" },
-  // };
-  
 
   return (
     <>
