@@ -13,7 +13,8 @@ const ScanPage = () => {
 
   const handleScan = (res, err) => {
     if (!!res) {
-      setData(res?.text);
+      // setData(res?.text);
+      setData(store.tickets.filter(ticket => {return ticket._id === res?.text}));
     }
 
     if (!!err) {
@@ -34,13 +35,6 @@ const ScanPage = () => {
       />
 
       <p>{data}</p>
-      {store.tickets && store.tickets.map(ticket => {
-          return <div key={ticket._id}>
-            <h4>{ticket.firstName}</h4>
-            <h4>{ticket.lastName}</h4>
-            <button onClick={() => {store.deleteTicket(ticket._id)}}>Delete</button>
-          </div>
-        })}
     </>
   )
 }
