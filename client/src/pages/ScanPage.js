@@ -18,6 +18,7 @@ const ScanPage = () => {
     <>
       <QrReader 
       onResult={handleScan}
+      facingMode='environment'
       />
 
       <p>{data}</p>
