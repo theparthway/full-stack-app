@@ -19,6 +19,8 @@ const ScanPage = () => {
 
     if (!!err) {
       console.error(err);
+      setData("error in reading" + err);
+
     }
   }
 
