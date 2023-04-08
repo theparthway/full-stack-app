@@ -52,7 +52,7 @@ async function login(req, res) {
 
 function logout(req, res) {
     try {
-        res.clearCookie("Authorization");
+        res.clearCookie("Authorization", {path:'/'});
         res.sendStatus(200);
     } catch(err) {
         console.error(err);
