@@ -3,21 +3,11 @@ import axios from 'axios';
 
 const ticketsStore = create((set) => ({
     tickets: null,
-    ticket: null,
 
     form: {
         firstName: '',
         lastName: '',
         gender: ''
-    },
-
-    fetchTicket: async (id) => {
-        console.log("fetching specific ticket");
-        const res = await axios.get('/ticket/' + id, {withCredentials: true});
-
-        console.log("after");
-
-        set({ticket: res.data.ticket});
     },
 
     fetchTickets: async () => {
