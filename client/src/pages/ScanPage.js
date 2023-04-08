@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { QrReader } from 'react-qr-reader';
+import ticketsStore from "../stores/ticketsStore";
 
 const ScanPage = () => {
   const [data, setData] = useState("no result");
 
+  const store = ticketsStore();
+
   const handleScan = (res, err) => {
     if (!!res) {
-      setData(res?.text);
+      // setData(res?.text);
+      setData(store.fetchTicket(res?.text));
     }
 
     if (!!err) {
@@ -14,14 +18,19 @@ const ScanPage = () => {
     }
   }
 
+  // const constraints = {
+  //   facingMode: { exact: "user" },
+  // };
+  
+
   return (
     <>
       <QrReader 
       onResult={handleScan}
-      facingMode='environment'
+      constraints={{facingMode: 'environment'}}
       />
 
-      <p>{data}</p>
+      <p>{data}, {store.ticket}</p>
     </>
   )
 }
