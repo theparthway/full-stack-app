@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import Tickets from '../components/Tickets';
-import CreateTicket from '../components/CreateTicket';
 import ticketsStore from '../stores/ticketsStore';
 
 
@@ -15,7 +14,6 @@ function TicketsPage() {
     return (
         <div>
             <Tickets />
-            <CreateTicket />
         </div>
   )
 }

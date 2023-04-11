@@ -7,9 +7,9 @@ const ticketsStore = create((set) => ({
     form: {
         firstName: '',
         lastName: '',
-        gender: '',
-        soldBy: '',
-        payment: ''
+        gender: 'male',
+        soldBy: 'abhinay',
+        payment: 'cash'
     },
 
     fetchTickets: async () => {
@@ -45,7 +45,10 @@ const ticketsStore = create((set) => ({
             tickets: [...tickets, res.data.ticket],
             form: {
                 firstName: "", 
-                lastName: ""
+                lastName: "",
+                gender: "male",
+                soldBy: "abhinay",
+                payment: "cash"
             }
         });
     },
