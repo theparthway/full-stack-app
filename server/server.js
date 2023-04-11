@@ -45,12 +45,14 @@ app.get('/ticket/:id', requireAuth, async (req, res) => {
 });
 
 app.post('/ticket', requireAuth, async (req, res) => {
-    const { firstName, lastName, gender } = req.body;
+    const { firstName, lastName, gender, soldBy, payment } = req.body;
 
     const ticket = await Ticket.create({
         firstName,
         lastName,
-        gender
+        gender,
+        soldBy,
+        payment
     });
 
     res.json({ ticket });
@@ -59,12 +61,14 @@ app.post('/ticket', requireAuth, async (req, res) => {
 app.put('/ticket/:id', requireAuth, async (req, res) => {
     const id = req.params.id;
     
-    const { firstName, lastName, gender } = req.body;
+    const { firstName, lastName, gender, soldBy, payment } = req.body;
 
     await Ticket.findByIdAndUpdate(id, {
         firstName,
         lastName,
-        gender
+        gender,
+        soldBy,
+        payment
     });
 
     const ticket = await Ticket.findById(id);
