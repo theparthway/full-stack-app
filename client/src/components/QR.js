@@ -6,7 +6,7 @@ export default function QR({ id }) {
   return (
     <div>
       {/* <img src={url} alt="qrcode" /> */}
-      <QRCode value={ id } />
+      <QRCode value={ id } size={128} />
     </div>
   )
 }

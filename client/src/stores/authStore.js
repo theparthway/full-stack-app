@@ -46,7 +46,7 @@ const authStore = create((set) => ({
     },
 
     logout: async () => {
-        await axios.post('/logout', { withCredentials: true });
+        await axios.post('/logout');
 
         set({ loggedIn: false });
     }

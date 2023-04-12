@@ -5,24 +5,26 @@ import CreateTicketPage from '../pages/CreateTicketPage';
 import RequireAuth from '../components/RequireAuth';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import LogoutPage from "../pages/LogoutPage";
+import '../index.css';
 
 function App() {
 
   return (
     <div className="App">
+      <div className="font-poppins">
       <BrowserRouter>
-        <ul>
+        <ul className=" text-3xl flex justify-evenly py-5">
           <li>
             <Link to="/">Tickets</Link>
+          </li>
+          <li>
+            <Link to="/scan">Scan QR</Link>
           </li>
           <li>
             <Link to="/login">Login</Link>
           </li>
           <li>
             <Link to="/logout">Logout</Link>
-          </li>
-          <li>
-            <Link to="/scan">Scan QR</Link>
           </li>
           <li>
             <Link to="/new">New Ticket</Link>
@@ -38,6 +40,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+  </div>
   );
 }
 
