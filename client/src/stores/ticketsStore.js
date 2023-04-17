@@ -9,7 +9,8 @@ const ticketsStore = create((set) => ({
         lastName: '',
         gender: 'male',
         soldBy: 'abhinay',
-        payment: 'cash'
+        payment: 'cash',
+        checkedIn: false
     },
 
     fetchTickets: async () => {
@@ -48,7 +49,8 @@ const ticketsStore = create((set) => ({
                 lastName: "",
                 gender: "male",
                 soldBy: "abhinay",
-                payment: "cash"
+                payment: "cash",
+                checkedIn: false
             }
         });
     },

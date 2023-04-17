@@ -21,6 +21,11 @@ const ticketSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    checkedIn: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
     dateBought: { type: Date, default: Date.now },
 });
 
