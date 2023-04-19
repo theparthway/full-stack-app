@@ -10,10 +10,10 @@ function CreateTicket() {
 
 
     <form onSubmit={store.createTicket}>
-      <input placeholder='First Name' className='mb-5 w-64 h-11 rounded-lg text-center' onChange={store.handleFormUpdate} id="firstName" name="firstName" value={store.form.firstName} />
+      <input required placeholder='First Name' className='mb-5 w-64 h-11 rounded-lg text-center' onChange={store.handleFormUpdate} id="firstName" name="firstName" value={store.form.firstName} />
       <br />
 
-      <input placeholder='Last Name' className='mb-5 w-64 h-11 rounded-lg text-center' id="lastName" name="lastName" value={store.form.lastName} onChange={store.handleFormUpdate} />
+      <input required placeholder='Last Name' className='mb-5 w-64 h-11 rounded-lg text-center' id="lastName" name="lastName" value={store.form.lastName} onChange={store.handleFormUpdate} />
       <br />
 
       <label className='mx-5'>Gender</label>
@@ -37,6 +37,8 @@ function CreateTicket() {
         <option value="online">Online</option>
       </select>
       <br/>
+
+      <label className='mx-5' value={store.label}></label>
 
       <button className='bg-gray-700 text-white hover:bg-white hover:text-gray-700 h-10 w-20 rounded-md' type="submit">Submit</button>
     </form>

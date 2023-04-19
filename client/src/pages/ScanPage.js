@@ -4,14 +4,15 @@ import axios from 'axios';
 
 const ScanPage = () => {
   const [data, setData] = useState("no result");
-  let gotTickets = false;
+  const [startScan, setStartScan] = useState(false);
+  
   let dat;
   
   const handleScan = async (res, err) => {
-    if (!gotTickets) {
+    if (!startScan) {
       dat = await axios.get('/tickets', { withCredentials: true });
       console.log("retrieved all tickets");
-      gotTickets = true;
+      setStartScan(true);
     }
 
     if (!!res) {
@@ -30,10 +31,22 @@ const ScanPage = () => {
 
   return (
     <>
-      <QrReader 
-      onResult={handleScan}
-      constraints={{facingMode: 'environment'}}
-      />
+
+
+      <button onClick={() => {
+        setStartScan(!startScan);
+      }}>
+        {startScan ? "Stop Scan" : "Start Scan"}
+      </button>
+
+      {startScan && (
+        <>
+          <QrReader 
+          onResult={handleScan}
+          constraints={{facingMode: 'environment'}}
+          />
+        </>
+      )}
 
       <p>{data}</p>
     </>

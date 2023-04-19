@@ -4,9 +4,9 @@ import ticketsStore from '../stores/ticketsStore';
 
 
 function TicketsPage() {
-    const store = ticketsStore();
-
-    useEffect(() => {
+  const store = ticketsStore();
+  
+  useEffect(() => {
       store.fetchTickets();
     }, []);
 

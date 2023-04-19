@@ -1,8 +1,10 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import axios from 'axios';
 
 const ticketsStore = create((set) => ({
     tickets: null,
+
+    label: null,
 
     form: {
         firstName: '',
