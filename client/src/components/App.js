@@ -13,7 +13,7 @@ function App() {
     <div className="App">
       <div className="font-poppins">
       <BrowserRouter>
-        <ul className=" text-3xl flex justify-evenly py-5">
+        <ul className="sm:text-2xl sm:gap-24 text-md gap-5 flex justify-center py-5">
           <li>
             <Link to="/">Tickets</Link>
           </li>

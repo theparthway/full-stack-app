@@ -19,7 +19,7 @@ function LoginForm() {
     }
 
   return (
-    <div className="px-40 py-10 text-center">
+    <div className="px-20 sm:px-40 py-10 text-center">
       <h2 className="text-4xl py-5">Login</h2>
       <form onSubmit={handleLogin}>
           <input required placeholder="Username" className="mb-5 w-64 h-11 rounded-lg text-center" onChange={store.updateLoginForm} value={store.loginForm.username} type="text" name="username" />
