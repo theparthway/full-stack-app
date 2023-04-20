@@ -13,20 +13,20 @@ function App() {
     <div className="App">
       <div className="font-poppins">
       <BrowserRouter>
-        <ul className="sm:text-2xl sm:gap-24 text-md gap-5 flex justify-center py-5">
-          <li>
+        <ul className="sm:text-2xl sm:gap-18 text-md gap-5 flex justify-center py-5">
+          <li className="bg-gray-700 text-white hover:bg-white hover:text-gray-700 w-32 text-center rounded-md">
             <Link to="/">Tickets</Link>
           </li>
-          <li>
+          <li className="bg-gray-700 text-white hover:bg-white hover:text-gray-700 w-28 text-center rounded-md">
             <Link to="/scan">Scan QR</Link>
           </li>
-          <li>
+          <li className="bg-gray-700 text-white hover:bg-white hover:text-gray-700 w-28 text-center rounded-md">
             <Link to="/login">Login</Link>
           </li>
-          <li>
+          <li className="bg-gray-700 text-white hover:bg-white hover:text-gray-700 w-28 text-center rounded-md">
             <Link to="/logout">Logout</Link>
           </li>
-          <li>
+          <li className="bg-gray-700 text-white hover:bg-white hover:text-gray-700 w-40 text-center rounded-md">
             <Link to="/new">New Ticket</Link>
           </li>
         </ul>

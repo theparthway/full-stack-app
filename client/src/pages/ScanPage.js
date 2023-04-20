@@ -7,24 +7,24 @@ const ScanPage = () => {
   const [startScan, setStartScan] = useState(false);
   
   let dat;
+  let gotTickets = false;
   
   const handleScan = async (res, err) => {
-    if (!startScan) {
+    if (!gotTickets) {
       dat = await axios.get('/tickets', { withCredentials: true });
       console.log("retrieved all tickets");
-      setStartScan(true);
+      gotTickets = true;
     }
+
 
     if (!!res) {
       const filt = dat.data.tickets.filter(ticket => {return ticket._id === res?.text});
       console.log(filt);
       setData(filt[0]["firstName"]);
 
-      // setData(res?.text);
-    }
+      setStartScan(false);
 
-    if (!!err) {
-      console.error(err);
+      // setData(res?.text);
     }
   }
 
