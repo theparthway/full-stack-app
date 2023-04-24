@@ -11,13 +11,16 @@ const ScanPage = () => {
   
   const handleScan = async (res, err) => {
     if (!gotTickets) {
+      setData("loading...");
       dat = await axios.get('/tickets', { withCredentials: true });
+      setData("retrieved, processing...");
       console.log("retrieved all tickets");
       gotTickets = true;
     }
 
 
     if (!!res) {
+      setData(res?.text);
       const filt = dat.data.tickets.filter(ticket => {return ticket._id === res?.text});
       console.log(filt);
       setData(filt[0]["firstName"]);
